@@ -1,0 +1,12 @@
+FROM golang:1.12 as build
+ENV GO111MODULE=on
+COPY sample.go .
+RUN go build -o sample sample.go
+
+FROM ubuntu as final
+RUN apt-get update -y \
+    && apt-get install -y tzdata
+COPY --from=build /go/sample /
+RUN md5sum /usr/share/zoneinfo/Japan
+
+CMD ["/sample"]
