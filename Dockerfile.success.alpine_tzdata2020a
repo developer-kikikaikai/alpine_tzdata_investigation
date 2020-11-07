@@ -1,0 +1,11 @@
+FROM golang:1.12 as build
+ENV GO111MODULE=on
+COPY sample.go .
+RUN go build -o sample sample.go
+
+FROM alpine:3.8 as final
+RUN apk --no-cache add tzdata=2020a-r0
+COPY --from=build /go/sample /
+RUN md5sum /usr/share/zoneinfo/Japan
+
+CMD ["/sample"]
