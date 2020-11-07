@@ -5,8 +5,7 @@ CONTAINERNAME=tzcontainer
 all:clean build run
 	
 build:
-	go build -o bin/sample sample.go
-	docker build -t ${IMAGENAME}:${TAGNAME} bin
+	docker build -t ${IMAGENAME}:${TAGNAME} .
 
 run:
 	docker run --name ${CONTAINERNAME} ${IMAGENAME}:${TAGNAME}

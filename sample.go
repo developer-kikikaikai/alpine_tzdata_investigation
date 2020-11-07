@@ -16,7 +16,9 @@ func main() {
 		fmt.Printf("time.Parse error:%s\n", err.Error())
 		return
 	}
+	fmt.Printf("base time: %s is converting to JST\n", basetime.String())
 	jsttime := basetime.In(loc)
+	fmt.Printf("converted to %s\n", jsttime.String())
 	if "2020-11-08 00:04:05 +0900 JST" != jsttime.String() {
 		fmt.Printf("JST Convert failed!!\n")
 		return
