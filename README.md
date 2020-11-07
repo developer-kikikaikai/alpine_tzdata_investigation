@@ -8,4 +8,4 @@
 - `Dockerfile.failure*` => files which is failed to do
 
 # Reference
-[Alpine docker image && golangで作成した時刻に関する処理で、JSTが+0000 +0000`と変換されてしまう問題調査](https://qiita.com/developer-kikikaikai/items/2ad14a5c384e58ddac2f)
+[Alpine docker image上で、golangのタイムゾーン変換を行うと、JSTが+0000 +0000と変換されてしまう問題調査](https://qiita.com/developer-kikikaikai/items/2ad14a5c384e58ddac2f)
