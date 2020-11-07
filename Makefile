@@ -2,10 +2,14 @@ TAGNAME=tzsample
 IMAGENAME=tzsample
 CONTAINERNAME=tzcontainer
 
-all:clean build run
+all:clean build/success run
+failure:clean build/failure run
 	
-build:
-	docker build -t ${IMAGENAME}:${TAGNAME} .
+build/success:
+	docker build -t ${IMAGENAME}:${TAGNAME} -f Dockerfile.success .
+
+build/failure:
+	docker build -t ${IMAGENAME}:${TAGNAME} -f Dockerfile.failure .
 
 run:
 	docker run --name ${CONTAINERNAME} ${IMAGENAME}:${TAGNAME}
